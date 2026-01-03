@@ -34,9 +34,9 @@ body{
 .stack-lg{ display:flex; flex-direction:column; gap: 18px; padding: 22px 0 40px; }
 
 .card{
-  background: var(--panel);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: var(--radius);
+  /*background: var(--panel); */
+  /*border: 1px solid rgba(255,255,255,.10); */
+  /*border-radius: var(--radius); */
   box-shadow: var(--shadow);
   padding: 18px;
   backdrop-filter: blur(10px);
@@ -44,3 +44,4 @@ body{
 
 h2{ margin: 0 0 8px; font-size: clamp(18px, 2.4vw, 24px); }
 p{ margin: 0; color: var(--muted); line-height: 1.55; }
+

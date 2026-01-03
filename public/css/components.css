@@ -9,7 +9,7 @@
 .cat2{
   position:relative;
   width:min(360px, 100%);
-  height:260px;
+  height:252px;
   border-radius:22px;
   background:
     radial-gradient(140px 90px at 35% 28%, rgba(255,170,200,.55), transparent 60%),
@@ -159,9 +159,9 @@
 .cat2__tail{
   position:absolute;
   bottom:64px;
-  left: calc(50% + 120px);
-  width:130px;
-  height:22px;
+  left: calc(50% + 70px);
+  width:75px;
+  height:20px;
   background: rgba(255,255,255,.86);
   border-radius: 30px;
   transform-origin: left center;
@@ -217,3 +217,135 @@
   0%,100%{ transform: translateY(0) rotate(0) scale(1); opacity:.92; }
   50%{ transform: translateY(-2px) rotate(-2deg) scale(1.03); opacity:1; }
 }
+
+
+
+/* components/motorcycle-gloves */ 
+/* === Moto Gloves Cute === */
+
+.moto-gloves-card{
+  text-align:center;
+}
+
+.moto-gloves{
+  display:flex;
+  gap:33px;
+  justify-content:center;
+  align-items:flex-end;
+  margin: 22px 0 10px;
+}
+
+.moto-glove{
+  position:relative;
+  width:100px;
+  height:135px;
+  background: linear-gradient(180deg, #151515, #0b0b0b);
+  border-radius:32px 32px 24px 24px;
+  box-shadow: 0 22px 50px rgba(0,0,0,.45);
+  animation: motoGloveFloat 4s ease-in-out infinite;
+}
+
+.moto-glove--right{ animation-delay:.4s; }
+
+/* borde rosita suave */
+.moto-glove::after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:26px;
+  border:2px solid rgba(255,120,180,.6);
+  box-shadow: inset 0 0 18px rgba(255,120,180,.25);
+}
+
+/* dedos */
+.moto-glove__finger{
+  position:absolute;
+  top:-52px;
+  width:24px;
+  height:64px;
+  background: linear-gradient(180deg, #1b1b1b, #0e0e0e);
+  border-radius:16px;
+  border-top:5px solid #ff5fa8;
+}
+
+.moto-glove__finger.f1{ left:0px; height:58px; top: -45px; }
+.moto-glove__finger.f2{ left:28px; height:56px;}
+.moto-glove__finger.f3{ left:56px; height:56px;}
+.moto-glove__finger.f4{ left:82px; height:58px; top: -45px; }
+
+/* pulgar */
+.moto-glove__thumb{
+  position:absolute;
+  left:-30px;
+  top:78px;
+  width:44px;
+  height:30px;
+  background: linear-gradient(180deg, #1b1b1b, #0e0e0e);
+  border-radius:24px;
+  transform: rotate(37deg);
+  border-left:5px solid #ff5fa8;
+}
+
+/* palma */
+.moto-glove__palm{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90px;
+  height:56px;
+  background: rgba(255,255,255,.06);
+  border-radius:24px;
+  box-shadow: inset 0 0 14px rgba(255,255,255,.12);
+}
+
+/* corazoncito */
+.moto-glove__heart{
+  position:absolute;
+  top:78px;
+  right:28px;
+  width:14px;
+  height:14px;
+  background:#ff6fb1;
+  transform: rotate(45deg);
+  animation: motoHeart 2.6s ease-in-out infinite;
+}
+
+.moto-glove__heart::before,
+.moto-glove__heart::after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:14px;
+  background:#ff6fb1;
+  border-radius:50%;
+}
+
+.moto-glove__heart::before{
+  top:-7px;
+  left:0;
+}
+
+.moto-glove__heart::after{
+  left:-7px;
+  top:0;
+}
+
+/* texto */
+.moto-gloves-text{
+  margin:0;
+  font-size:20px;
+  opacity:.9;
+}
+
+/* animaciones */
+@keyframes motoGloveFloat{
+  0%,100%{ transform: translateY(0) rotate(0deg); }
+  50%{ transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@keyframes motoHeart{
+  0%,100%{ transform: rotate(45deg) scale(1); opacity:.7; }
+  50%{ transform: rotate(45deg) scale(1.25); opacity:1; }
+}
+
