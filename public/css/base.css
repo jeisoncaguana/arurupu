@@ -1,47 +1,139 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+/* === FONDO NIEVE CON COPOS GRANDES === */
 
-:root{
-  --bg: #0b1020;
-  --panel: rgba(255,255,255,.06);
-  --panel-2: rgba(255,255,255,.1);
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.72);
-  --stroke: #365FA0;
-  --fill: rgba(72,138,204,1);
-
-  --radius: 18px;
-  --shadow: 0 18px 60px rgba(0,0,0,.35);
-
-  --container: 1040px;
-}
-
-*{ box-sizing: border-box; }
-html,body{ height:100%; }
 body{
   margin:0;
-  color: var(--text);
-  background: radial-gradient(1200px 800px at 20% 10%, rgba(72,138,204,.20), transparent 60%),
-              radial-gradient(1000px 700px at 80% 30%, rgba(54,95,160,.22), transparent 55%),
-              var(--bg);
+  color:#fff;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    /* COPOS MUY GRANDES (cerca de cámara) */
+    radial-gradient(circle, rgba(255,255,255,.95) 0 6px, transparent 6.5px) 20px 40px/420px 420px,
+    radial-gradient(circle, rgba(255,255,255,.9) 0 5px, transparent 5.5px) 260px 120px/460px 460px,
+
+    /* COPOS GRANDES */
+    radial-gradient(circle, rgba(255,255,255,.85) 0 4px, transparent 4.5px) 80px 160px/300px 300px,
+    radial-gradient(circle, rgba(255,255,255,.8) 0 3.6px, transparent 4px) 180px 40px/340px 340px,
+
+    /* COPOS MEDIANOS */
+    radial-gradient(circle, rgba(255,255,255,.7) 0 2.4px, transparent 2.8px) 40px 60px/180px 180px,
+    radial-gradient(circle, rgba(255,255,255,.65) 0 2px, transparent 2.4px) 120px 20px/200px 200px,
+
+    /* COPOS PEQUEÑOS (lejanos) */
+    radial-gradient(circle, rgba(255,255,255,.5) 0 1.2px, transparent 1.6px) 20px 10px/100px 100px,
+    radial-gradient(circle, rgba(255,255,255,.4) 0 1px, transparent 1.4px) 60px 40px/120px 120px,
+
+    /* brillo frío */
+    radial-gradient(1200px 800px at 20% 10%, rgba(180,220,255,.22), transparent 60%),
+    radial-gradient(1000px 700px at 80% 30%, rgba(120,180,255,.18), transparent 55%),
+
+    /* cielo */
+    linear-gradient(180deg, #0b1020, #0e1630);
+
+  background-attachment: fixed;
+  animation: snowFallCinematic 22s linear infinite;
 }
 
-.container{
-  width: min(var(--container), calc(100% - 32px));
-  margin-inline: auto;
+/* animación con profundidad real */
+@keyframes snowFallCinematic{
+  from{
+    background-position:
+      20px 0,
+      260px 0,
+
+      80px 0,
+      180px 0,
+
+      40px 0,
+      120px 0,
+
+      20px 0,
+      60px 0,
+
+      0 0,
+      0 0,
+      0 0;
+  }
+  to{
+    background-position:
+      20px 1200px,
+      260px 1100px,
+
+      80px 900px,
+      180px 820px,
+
+      40px 720px,
+      120px 680px,
+
+      20px 520px,
+      60px 480px,
+
+      0 0,
+      0 0,
+      0 0;
+  }
 }
 
-.stack-lg{ display:flex; flex-direction:column; gap: 18px; padding: 22px 0 40px; }
-
-.card{
-  /*background: var(--panel); */
-  /*border: 1px solid rgba(255,255,255,.10); */
-  /*border-radius: var(--radius); */
-  box-shadow: var(--shadow);
-  padding: 18px;
-  backdrop-filter: blur(10px);
+/* accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  body{ animation:none; }
 }
 
-h2{ margin: 0 0 8px; font-size: clamp(18px, 2.4vw, 24px); }
-p{ margin: 0; color: var(--muted); line-height: 1.55; }
+
+
+/* === TITULO ESTILO GRAFITI DE NIEVE === */
+
+h2.snow-graffiti{
+  font-family: "Russo One", system-ui, sans-serif;
+  font-size: clamp(28px, 6vw, 56px);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  /* efecto nieve */
+  text-shadow:
+    0 0px 0 #cfe9ff,
+    0 0px 0 #b6dcff,
+    0 12px 20px rgba(0,0,0,.35),
+    0 0 18px rgba(200,230,255,.85);
+
+  /* borde tipo grafiti */
+  -webkit-text-stroke: 2px #6bb6ff;
+
+  background:
+    linear-gradient(180deg, #ffffff 0%, #dff3ff 55%, #bcdfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  position: relative;
+}
+
+/* relieve de hielo */
+h2.snow-graffiti::before{
+  content: attr(data-text);
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  color:#7fbfff;
+  filter: blur(6px);
+  opacity:.55;
+}
+
+/* copitos pegados */
+h2.snow-graffiti::after{
+  content:"❄️  ❄️  ❄️";
+  position:absolute;
+  left: 50%;
+  top: -40%;
+  transform: translateX(-50%) rotate(-2deg);
+  font-size: .55em;
+  opacity:.8;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.25));
+}
+
+/* responsive */
+@media (max-width: 520px){
+  h2.snow-graffiti{
+    -webkit-text-stroke: 1.5px #6bb6ff;
+  }
+}
 
