@@ -751,16 +751,45 @@
   opacity:.9;
 }
 
+/* === CARITA SONRIENDO (reemplaza la nariz) === */
+
 .forest-spirit__nose{
   position:absolute;
   left:50%;
-  top: 74px;
-  width: 34px;
-  height: 18px;
+  top: 72px;
+  width: 42px;
+  height: 22px;
   transform: translateX(-50%);
-  border-radius: 999px;
-  background: #12161d;
-  box-shadow: inset 0 6px 10px rgba(255,255,255,.08);
+  background: transparent;
+}
+
+/* sonrisa */
+.forest-spirit__nose::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 6px;
+  width: 25px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-bottom: 4px solid #12161d;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.25);
+}
+
+/* mejillas felices */
+.forest-spirit__nose::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 14px;
+  width: 48px;
+  height: 12px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 6px 50%, rgba(255,170,200,.35) 0 4px, transparent 5px),
+    radial-gradient(circle at calc(100% - 6px) 50%, rgba(255,170,200,.35) 0 4px, transparent 5px);
+  opacity:.9;
 }
 
 .forest-spirit__cheek{

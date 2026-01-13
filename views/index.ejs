@@ -1,5 +1,48 @@
-<%- include("components/forest-spirit-stage") %>
-<%- include("components/sleepy-cat") %>
-<%- include("components/snow-invite") %>
-<%- include("components/motorcycle-gloves") %>
- 
+<!-- views/index.ejs -->
+
+<div class="start-gate" id="startGate">
+  <div class="start-gate__card">
+    <h1 class="start-gate__title">Pao ✨</h1>
+    <p class="start-gate__sub">Son recuerdos de la chica mas guapa</p>
+    <p class="start-gate__sub"> que guardo aquí  🇻🇪 </p>
+    <p class="start-gate__sub">~j</p>
+    <button class="start-gate__btn" id="startBtn" type="button">Iniciar</button>
+  </div>
+</div>
+
+<main class="app-stage" id="appStage" hidden>
+  <%- include("components/sleepy-cat") %> 
+  <%- include("components/motorcycle-gloves") %>
+  <%- include("components/forest-spirit-stage") %>
+</main>
+
+<audio id="bg-audio" loop preload="auto">
+  <source src="/audio/romantic-454545.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const gate = document.getElementById("startGate");
+  const btn = document.getElementById("startBtn");
+  const stage = document.getElementById("appStage");
+  const audio = document.getElementById("bg-audio");
+
+  btn.addEventListener("click", async () => {
+    // UI
+    gate.classList.add("start-gate--hide");
+    stage.hidden = false;
+
+    // audio
+    try{
+      audio.volume = 0;
+      await audio.play();
+
+      let v = 0;
+      const target = 0.25;
+      const fade = setInterval(() => {
+        v = Math.min(target, v + 0.02);
+        audio.volume = v;
+        if (v >= target) clearInterval(fade);
+      }, 120);
+    }catch(e){}
+  });
+</script>

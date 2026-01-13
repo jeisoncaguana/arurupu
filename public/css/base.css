@@ -137,3 +137,78 @@ h2.snow-graffiti::after{
   }
 }
 
+
+
+/* === START GATE (namespaced) === */
+
+.start-gate{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display:grid;
+  place-items:center;
+  padding: 22px;
+  background:
+    radial-gradient(900px 600px at 30% 20%, rgba(120,180,255,.22), transparent 60%),
+    radial-gradient(900px 600px at 70% 30%, rgba(255,160,210,.18), transparent 60%),
+    rgba(0,0,0,.55);
+  backdrop-filter: blur(10px);
+}
+
+.start-gate__card{
+  width: min(520px, 100%);
+  border-radius: 22px;
+  padding: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 22px 70px rgba(0,0,0,.45);
+  text-align:center;
+}
+
+.start-gate__title{
+  margin: 0 0 6px;
+  font-size: clamp(26px, 5vw, 44px);
+  letter-spacing: .5px;
+}
+
+.start-gate__sub{
+  margin: 0 0 -3px;
+  opacity: .8;
+}
+
+.start-gate__btn{
+  appearance:none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  margin-top: 15px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  color: rgba(255,255,255,.95);
+  background:
+    linear-gradient(135deg, rgba(255,120,180,.55), rgba(120,180,255,.55));
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+  transform: translateY(0);
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.start-gate__btn:hover{ transform: translateY(-2px); filter: brightness(1.08); }
+.start-gate__btn:active{ transform: translateY(0); filter: brightness(.98); }
+
+.start-gate--hide{
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* optional spacing for main */
+.app-stage{
+  width: min(var(--container, 1040px), calc(100% - 32px));
+  margin-inline: auto;
+  padding: 22px 0 40px;
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+}
