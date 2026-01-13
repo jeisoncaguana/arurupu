@@ -656,3 +656,280 @@
 
 
 
+/* === FOREST SPIRIT (original, ghibli-vibe) === */
+
+.forest-spirit-stage{
+  display:grid;
+  text-align:center;
+  padding: 18px 0 6px;
+}
+
+.forest-spirit{
+  position: relative;
+  width: min(420px, 92%);
+  height: 524px;
+}
+
+.forest-spirit__body{
+  position:absolute;
+  left:50%;
+  top: 46%;
+  width: 280px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 160px 160px 140px 140px;
+  background:
+    radial-gradient(140px 110px at 35% 25%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(180deg, #4a4f57, #2a2d33);
+  box-shadow:
+    inset 0 14px 18px rgba(255,255,255,.06),
+    inset 0 -18px 24px rgba(0,0,0,.55);
+  animation: forestSpiritBreathe 4.4s ease-in-out infinite;
+}
+
+.forest-spirit__belly{
+  position:absolute;
+  left:50%;
+  top: 56%;
+  width: 190px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+  border-radius: 110px;
+  background:
+    radial-gradient(120px 90px at 35% 30%, rgba(255,255,255,.22), transparent 60%),
+    linear-gradient(180deg, #d8d6cf, #bdbab2);
+  box-shadow: inset 0 10px 14px rgba(255,255,255,.18);
+  opacity:.98;
+}
+
+/* belly chevrons (original pattern) */
+.forest-spirit__belly::before{
+  content:"";
+  position:absolute;
+  inset: 26px 22px;
+  border-radius: 90px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(70,75,83,.55) 0 10px,
+      rgba(70,75,83,0) 10px 22px
+    );
+  opacity:.35;
+  mask: radial-gradient(circle at 50% 45%, #000 0 62%, transparent 63%);
+}
+
+.forest-spirit__face{
+  position:absolute;
+  left:50%;
+  top: 26%;
+  width: 220px;
+  height: 140px;
+  transform: translateX(-50%);
+}
+
+.forest-spirit__eye{
+  position:absolute;
+  top: 46px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #0c0f14;
+  box-shadow: 0 8px 14px rgba(0,0,0,.25);
+}
+.forest-spirit__eye--l{ left: 58px; }
+.forest-spirit__eye--r{ right: 58px; }
+
+.forest-spirit__eye::after{
+  content:"";
+  position:absolute;
+  left: 3px;
+  top: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.85);
+  opacity:.9;
+}
+
+.forest-spirit__nose{
+  position:absolute;
+  left:50%;
+  top: 74px;
+  width: 34px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #12161d;
+  box-shadow: inset 0 6px 10px rgba(255,255,255,.08);
+}
+
+.forest-spirit__cheek{
+  position:absolute;
+  top: 82px;
+  width: 30px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255,170,200,.18);
+  filter: blur(.2px);
+  opacity:.75;
+}
+.forest-spirit__cheek--l{ left: 44px; transform: rotate(-8deg); }
+.forest-spirit__cheek--r{ right: 44px; transform: rotate(8deg); }
+
+.forest-spirit__whiskers{
+  position:absolute;
+  top: 86px;
+  width: 70px;
+  height: 40px;
+  opacity:.55;
+}
+.forest-spirit__whiskers--l{ left: -2px; }
+.forest-spirit__whiskers--r{ right: -2px; transform: scaleX(-1); }
+
+.forest-spirit__whiskers::before,
+.forest-spirit__whiskers::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  height: 3px;
+  background: rgba(210,210,210,.35);
+  border-radius: 6px;
+}
+.forest-spirit__whiskers::before{ top: 10px; transform: rotate(10deg); }
+.forest-spirit__whiskers::after{ top: 26px; transform: rotate(-10deg); }
+
+.forest-spirit__ear{
+  position:absolute;
+  top: 78px;
+  width: 74px;
+  height: 74px;
+  border-radius: 22px 22px 10px 10px;
+  background: linear-gradient(180deg, #4a4f57, #2a2d33);
+  transform: rotate(45deg);
+  box-shadow: 0 18px 26px rgba(0,0,0,.22);
+}
+.forest-spirit__ear--l{ left: 104px; }
+.forest-spirit__ear--r{ right: 104px; }
+
+.forest-spirit__ear::after{
+  content:"";
+  position:absolute;
+  inset: 16px;
+  border-radius: 16px;
+  background: rgba(255,190,210,.18);
+  opacity:.85;
+}
+
+.forest-spirit__arm{
+  position:absolute;
+  top: 46%;
+  width: 88px;
+  height: 44px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #4a4f57, #2a2d33);
+  box-shadow: inset 0 -10px 16px rgba(0,0,0,.35);
+  opacity:.98;
+}
+.forest-spirit__arm--l{ left: -22px; transform: rotate(14deg); }
+.forest-spirit__arm--r{ right: -22px; transform: rotate(-14deg); }
+
+.forest-spirit__feet{
+  position:absolute;
+  left:50%;
+  bottom: 18px;
+  width: 210px;
+  height: 56px;
+  transform: translateX(-50%);
+}
+.forest-spirit__feet::before,
+.forest-spirit__feet::after{
+  content:"";
+  position:absolute;
+  width: 88px;
+  height: 52px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #3b3f47, #22252b);
+  box-shadow: inset 0 -10px 16px rgba(0,0,0,.35);
+}
+.forest-spirit__feet::before{ left: 12px; transform: rotate(6deg); }
+.forest-spirit__feet::after{ right: 12px; transform: rotate(-6deg); }
+
+/* umbrella */
+.forest-spirit__umbrella{
+  position:absolute;
+  left: 50%;
+  top: -3px;
+  width: 211px;
+  height: 69px;
+  border-radius: 180px 180px 24px 24px;
+  background:
+    radial-gradient(140px 120px at 30% 35%, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(180deg, #2f82ff, #1551c6);
+  box-shadow: 0 22px 40px rgba(0,0,0,.25);
+}
+.forest-spirit__umbrella::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 10%;
+  width: 8px;
+  height: 250px;
+  transform: translateX(-50%);
+  background: rgba(20,25,35,.85);
+  border-radius: 999px;
+  box-shadow: 0 18px 26px rgba(0,0,0,.25);
+}
+.forest-spirit__umbrella::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 86%;
+  width: 34px;
+  height: 12px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255,255,255,.22);
+  opacity:.8;
+}
+
+/* rain lines */
+.forest-spirit__rain{
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  opacity:.55;
+}
+.forest-spirit__rain span{
+  position:absolute;
+  top: 70px;
+  width: 2px;
+  height: 46px;
+  background: rgba(200,230,255,.65);
+  border-radius: 999px;
+  filter: blur(.1px);
+  animation: forestSpiritRain 1.2s linear infinite;
+}
+.forest-spirit__rain span:nth-child(1){ left: 34%; animation-delay: 0s; }
+.forest-spirit__rain span:nth-child(2){ left: 42%; animation-delay: .15s; height: 52px; }
+.forest-spirit__rain span:nth-child(3){ left: 50%; animation-delay: .3s; height: 44px; }
+.forest-spirit__rain span:nth-child(4){ left: 58%; animation-delay: .45s; height: 50px; }
+.forest-spirit__rain span:nth-child(5){ left: 66%; animation-delay: .6s; height: 46px; }
+
+.forest-spirit-text h2{ margin: 10px 0 6px; font-size: clamp(18px, 2.6vw, 24px); }
+.forest-spirit-text p{ margin:0; opacity:.75; }
+
+/* anims */
+@keyframes forestSpiritBreathe{
+  0%,100%{ transform: translate(-50%, -50%) scale(1); }
+  50%{ transform: translate(-50%, -50%) scale(1.015); }
+}
+@keyframes forestSpiritRain{
+  from{ transform: translateY(0); opacity:.0; }
+  25%{ opacity:.6; }
+  to{ transform: translateY(70px); opacity:.0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .forest-spirit__body,
+  .forest-spirit__rain span{ animation:none !important; }
+}

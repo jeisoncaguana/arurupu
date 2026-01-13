@@ -16,7 +16,7 @@ app.use(expressLayouts);
 app.set("layout", "layout"); // usa views/layout.ejs
 
 app.get("/", (_req, res) => {
-  res.render("index", { title: "🛵❄️🧣" });
+  res.render("index", { title: "🎿 ❄️🧣" });
 });
 
 app.listen(PORT, () => console.log(`✅ http://localhost:${PORT}`));
